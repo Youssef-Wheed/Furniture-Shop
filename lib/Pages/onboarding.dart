@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'homepage.dart';
+import 'package:furniture_shop_app/Pages/main_navigation.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
@@ -48,7 +48,7 @@ class Onboarding extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Homepage()),
+                  MaterialPageRoute(builder: (context) => const MainNavigation()),
                 );
               },
               child: Center(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:furniture_shop_app/Widgets/CustomCard.dart';
 import 'package:furniture_shop_app/Widgets/CustomCategories.dart';
 import 'package:furniture_shop_app/Model/CardModel.dart';
+import 'package:furniture_shop_app/Model/SellerModel.dart';
+import 'package:furniture_shop_app/Widgets/CustomSeller.dart';
 import 'package:furniture_shop_app/Widgets/CustomText.dart';
 import 'package:furniture_shop_app/Widgets/CustomSearch.dart';
 
@@ -59,7 +61,7 @@ class _HomepageState extends State<Homepage> {
               const SizedBox(height: 20),
               //category
               const Customcategories(),
-      
+
               //cards
               const SizedBox(height: 20),
               SizedBox(
@@ -67,7 +69,8 @@ class _HomepageState extends State<Homepage> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: chairsList.length,
-                  separatorBuilder: (context, index) => const SizedBox(width: 10),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10),
                   itemBuilder: (context, index) {
                     final chair = chairsList[index];
                     return Customcard(
@@ -76,6 +79,34 @@ class _HomepageState extends State<Homepage> {
                       title: chair.title,
                       subtitle: chair.subtitle,
                       price: chair.price,
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              const Customtext(
+                text: 'Best Seller',
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: Color(0xff416954),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 140,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: seller.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10),
+                  itemBuilder: (context, index) {
+                    final item = seller[index];
+                    return Customseller(
+                      image: item.image,
+                      rate: item.rate,
+                      title: item.title,
+                      subtitle: item.subtitle,
+                      price: item.price,
                     );
                   },
                 ),
