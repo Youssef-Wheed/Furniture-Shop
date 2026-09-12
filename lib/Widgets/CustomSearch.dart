@@ -6,39 +6,43 @@ class Customsearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        height: 52,
-        width: 362,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.grey, width: 1.4),
-        ),
-        child: Row(
-          children: [
-            SizedBox(width: 15),
-            Image.asset(
-              'assets/HomePage/icon_search.png',
-              width: 17,
-              height: 17,
-            ),
-            SizedBox(width: 10),
-            Text(
+    return Container(
+      height: 52,
+      width: double.infinity, // Changed from 362 to allow adaptive width
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey, width: 1.4),
+      ),
+      child: Row(
+        children: [
+          const SizedBox(width: 15),
+          Image.asset(
+            'assets/HomePage/icon_search.png',
+            width: 17,
+            height: 17,
+            errorBuilder: (context, error, stackTrace) => const Icon(Icons.search, size: 17),
+          ),
+          const SizedBox(width: 10),
+          Expanded( // Added Expanded to text to prevent overflow
+            child: Text(
               'Search for furniture',
               style: GoogleFonts.inter(
-                textStyle: TextStyle(
-                  fontSize: 17,
+                textStyle: const TextStyle(
+                  fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: Color(0xff828282BD),
+                  color: Color(0xff828282),
                 ),
               ),
             ),
-            SizedBox(width: 100),
-            Image.asset('assets/HomePage/Line 1.png', height: 28),
-            SizedBox(width: 10),
-            Image.asset('assets/HomePage/geune.png', height: 28),
-          ],
-        ),
+          ),
+          const SizedBox(width: 10),
+          Image.asset('assets/HomePage/Line 1.png', height: 28),
+          const SizedBox(width: 10),
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: Image.asset('assets/HomePage/geune.png', height: 28),
+          ),
+        ],
       ),
     );
   }
