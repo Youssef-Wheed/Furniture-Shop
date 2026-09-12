@@ -131,7 +131,7 @@ class Customcard extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: Color(0xff416954),
                     ),
-                    child: const Icon(Icons.add, color: Colors.white, size: 20),
+                    child: const Icon(Icons.add, color: Colors.white, size: 30),
                   ),
                 ],
               ),
