@@ -1,42 +1,32 @@
-class Seller {
-  final String image;
-  final String rate;
-  final String title;
-  final String subtitle;
-  final String price;
+import 'Product.dart';
 
-  Seller({
-    required this.image,
-    required this.rate,
-    required this.title,
-    required this.subtitle,
-    required this.price,
-  });
-}
-
-List<Seller> seller = [
-  Seller(
+List<Product> seller = [
+  Product(
+    id: 's1',
     image: 'assets/HomePage/yellowChair.png',
     rate: '4.7',
     title: 'yellow Chair',
     subtitle: 'Armchair',
     price: '₹ 7,300',
   ),
-  Seller(
+  Product(
+    id: 's2',
     image: 'assets/HomePage/brownChair.png',
     rate: '4.6',
     title: 'brown Chair',
     subtitle: 'Armchair',
     price: '₹ 10,500',
   ),
-  Seller(
+  Product(
+    id: 's3',
     image: 'assets/HomePage/modern_chair.png',
     rate: '4.8',
     title: 'Modern Chair',
     subtitle: 'Armchair',
     price: '₹ 12,500',
   ),
-  Seller(
+  Product(
+    id: 's4',
     image: 'assets/HomePage/MinimalistChair.png',
     rate: '4.0',
     title: 'Minimalist Chair',

@@ -74,11 +74,7 @@ class _HomepageState extends State<Homepage> {
                   itemBuilder: (context, index) {
                     final chair = chairsList[index];
                     return Customcard(
-                      image: chair.image,
-                      rate: chair.rate,
-                      title: chair.title,
-                      subtitle: chair.subtitle,
-                      price: chair.price,
+                      product: chair,
                     );
                   },
                 ),
@@ -102,11 +98,7 @@ class _HomepageState extends State<Homepage> {
                   itemBuilder: (context, index) {
                     final item = seller[index];
                     return Customseller(
-                      image: item.image,
-                      rate: item.rate,
-                      title: item.title,
-                      subtitle: item.subtitle,
-                      price: item.price,
+                      product: item,
                     );
                   },
                 ),
