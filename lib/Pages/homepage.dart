@@ -7,6 +7,11 @@ import 'package:furniture_shop_app/Widgets/CustomSeller.dart';
 import 'package:furniture_shop_app/Widgets/CustomText.dart';
 import 'package:furniture_shop_app/Widgets/CustomSearch.dart';
 
+/// The main landing page of the Furniture Shop application.
+///
+/// This page displays featured categories, a horizontal list of furniture products,
+/// and a best-seller section. It serves as the primary entry point for users
+/// to discover and browse the catalog.
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -14,8 +19,10 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
+/// Global selection state for categories (Consider moving to a Provider if complexity grows).
 int selectCountener = 0;
 
+/// Available furniture categories for discovery.
 List<String> categories = ['Chairs', 'Cupboard', 'Tables', 'Lamps'];
 
 class _HomepageState extends State<Homepage> {
@@ -26,17 +33,19 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
+        elevation: 0,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Row(
             children: [
-              Customtext(
+              const Customtext(
                 text: 'Discover The Best\nFurniture.',
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
                 color: Color(0xff416954),
               ),
-              Spacer(),
+              const Spacer(),
+              // User Profile Thumbnail
               Image.asset('assets/HomePage/profile.png', width: 54, height: 54),
             ],
           ),
@@ -49,23 +58,30 @@ class _HomepageState extends State<Homepage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              //search
+              
+              // Integrated Search Component
               const Customsearch(),
+              
               const SizedBox(height: 20),
+              
+              // Categories Section Header
               const Customtext(
                 text: 'Categories',
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
                 color: Color(0xff416954),
               ),
+              
               const SizedBox(height: 20),
-              //category
+              
+              // Scrollable Category Chips
               const Customcategories(),
 
-              //cards
               const SizedBox(height: 20),
+              
+              // Featured Products Horizontal Gallery
               SizedBox(
-                height: 320, // Reduced height because card is now more compact
+                height: 320,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: chairsList.length,
@@ -79,15 +95,20 @@ class _HomepageState extends State<Homepage> {
                   },
                 ),
               ),
+              
               const SizedBox(height: 20),
 
+              // Best Seller Section Header
               const Customtext(
                 text: 'Best Seller',
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
                 color: Color(0xff416954),
               ),
+              
               const SizedBox(height: 20),
+              
+              // Best Sellers Horizontal List
               SizedBox(
                 height: 140,
                 child: ListView.separated(

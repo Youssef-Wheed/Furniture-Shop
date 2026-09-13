@@ -1,6 +1,6 @@
 # 🛋️ Furniture Shop App
 
-A premium, modern, and high-performance Flutter application designed for an elegant furniture shopping experience. This project demonstrates a clean architecture approach, reusable UI components, and a sophisticated design language tailored for retail excellence.
+A premium, modern, and high-performance Flutter application designed for an elegant furniture shopping experience. This project demonstrates a clean architecture approach, robust state management using Provider, and a sophisticated design language tailored for retail excellence.
 
 ---
 
@@ -8,11 +8,11 @@ A premium, modern, and high-performance Flutter application designed for an eleg
 - [Project Overview](#-project-overview)
 - [Key Features](#-key-features)
 - [App Architecture](#-app-architecture)
+- [State Management](#-state-management)
 - [Design System](#-design-system)
 - [Getting Started](#-getting-started)
 - [Assets & Resources](#-assets--resources)
 - [Tech Stack](#-tech-stack)
-- [Future Enhancements](#-future-enhancements)
 
 ---
 
@@ -33,59 +33,69 @@ A smooth introductory experience that sets the tone for the brand, welcoming use
 
 ### 3. 🗺️ Unified Navigation
 Implemented via [MainNavigation.dart](file:///D:/Flutter_Learning/My Project/Furniture Shop/lib/Pages/main_navigation.dart), featuring a custom Bottom Navigation Bar for:
-- **Notifications**: Stay updated with the latest offers.
-- **Favorites**: Personal wishlist for saved items.
-- **Home**: The central shopping hub.
-- **Cart**: Streamlined shopping cart management.
+- **Notifications**: Real-time feedback and promotional alerts.
+- **Favorites**: Personal wishlist with persistent in-memory state.
+- **Home**: The central shopping hub with dynamic content.
+- **Cart**: Streamlined shopping cart management with quantity controls.
 - **Profile**: User account and settings management.
 
-### 4. 🛍️ Product Details
-Detailed views for each furniture piece, including pricing, ratings, and specifications.
+### 4. 🛒 Shopping Experience
+- **Product Details**: Comprehensive view with hero animations, detailed descriptions, and quick-add functionality.
+- **Cart Management**: Real-time price calculation, item removal, and quantity adjustments.
+- **Wishlist**: Toggle favorites directly from product cards or the details page.
 
 ---
 
 ## 🏗️ App Architecture
 
-The project follows a modular structure to ensure maintainability and scalability:
+The project follows a modular, layer-based architecture to ensure maintainability and scalability:
 
 ```text
 lib/
 ├── Model/               # Data structures and business logic entities
-│   ├── CardModel.dart   # Model for product display cards
-│   └── SellerModel.dart # Model for seller/best-seller information
-├── Pages/               # Individual screens and main navigation logic
+│   ├── Product.dart     # Unified Product model
+│   ├── CardModel.dart   # Mock data for categories
+│   └── SellerModel.dart # Mock data for best sellers
+├── Provider/            # State management logic
+│   └── cart_provider.dart # ShopProvider for Cart & Favourites
+├── Pages/               # UI Screens
 │   ├── main_navigation.dart
 │   ├── homepage.dart
-│   ├── onboarding.dart
+│   ├── product_details.dart
 │   ├── cart.dart
 │   ├── profile.dart
 │   ├── favourite.dart
 │   └── notification.dart
-├── Widgets/             # Atomic, reusable UI components
+├── Widgets/             # Reusable Atomic UI components
 │   ├── CustomCard.dart
 │   ├── CustomText.dart
 │   ├── CustomSearch.dart
 │   ├── CustomSeller.dart
 │   └── CustomCategories.dart
-└── main.dart            # Application entry point
+└── main.dart            # Application entry point & Provider setup
 ```
 
 ---
 
-## 🎨 Design System
+## 🧠 State Management
+The app utilizes the **Provider** pattern for reactive state management. The `ShopProvider` handles:
+- **Cart Logic**: Adding/removing items, quantity updates, and total price calculation.
+- **Favourites Logic**: Toggling product favorite status and real-time UI synchronization across different screens.
 
-- **Color Palette**: The primary brand color is a sophisticated forest green (`#416954`), providing a natural and premium feel.
-- **Typography**: Powered by [Google Fonts](https://pub.dev/packages/google_fonts), ensuring crisp and modern text rendering across all devices.
-- **UI Components**: Every widget is custom-built (see `Widgets/` folder) to maintain a unique and consistent brand identity.
+---
+
+## 🎨 Design System
+- **Color Palette**: The primary brand color is a sophisticated forest green (`#416954`).
+- **Typography**: Powered by [Google Fonts (Inter)](https://pub.dev/packages/google_fonts), ensuring crisp and modern text rendering.
+- **UI Components**: Atomic design approach with reusable widgets (see `Widgets/` folder) to maintain a unique and consistent brand identity.
+- **Feedback**: Integrated `SnackBar` notifications and interactive icons for immediate user feedback.
 
 ---
 
 ## 🛠️ Tech Stack
-
 - **Framework**: [Flutter SDK ^3.13.2](https://flutter.dev/)
-- **Language**: [Dart](https://dart.dev/)
-- **State Management**: Built-in stateful/stateless widget architecture.
-- **Iconography**: [Cupertino Icons](https://pub.dev/packages/cupertino_icons)
+- **State Management**: [Provider ^6.1.1](https://pub.dev/packages/provider)
+- **Icons**: [Cupertino Icons](https://pub.dev/packages/cupertino_icons)
 - **Typography**: [Google Fonts](https://pub.dev/packages/google_fonts)
 
 ---
@@ -93,9 +103,8 @@ lib/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Flutter SDK installed on your machine.
-- An IDE (Android Studio, IntelliJ, or VS Code).
-- An Android/iOS Emulator or physical device.
+- Flutter SDK installed.
+- Android/iOS Emulator or physical device.
 
 ### Installation & Run
 1. **Clone the repository**:
@@ -113,25 +122,8 @@ lib/
 
 ---
 
-## 📂 Assets & Resources
-The app uses structured assets located in the `assets/` directory:
-- `assets/onboarding/`: Imagery for the initial user flow.
-- `assets/HomePage/`: Icons, product images, and profile pictures for the main interface.
-- `assets/ProductDetails/`: High-resolution product images.
-
----
-
-## 🔮 Future Enhancements
-- [ ] **State Management**: Integration of Provider or Bloc for complex state handling.
-- [ ] **Backend Integration**: Connecting to a Firebase or REST API for real-time data.
-- [ ] **Local Storage**: Persisting user favorites and cart data using Hive or SQLite.
-- [ ] **Dark Mode Support**: Implementing a dark theme for better accessibility.
-- [ ] **Animations**: Adding Rive or Lottie animations for a more interactive experience.
-
----
-
 ## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ---
-*Developed with ❤️ by Your Name/Team*
+*Developed with ❤️ for a premium shopping experience.*
